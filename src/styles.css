@@ -286,13 +286,13 @@ hr {
     justify-content: center;
     margin: auto;
     height: 50%;
-    width: 80%;
+    width: 63%;
 }
 .project-img {
     object-fit: fill;
     margin: 10px auto;
-    width: 70%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 50%;
 }
 .project-card:hover::before{
@@ -491,22 +491,20 @@ footer .x {
         width: 240px;
         height: 410px; 
     }
+    .img-container {
+        max-width: 75%;
+    }
     .subtext {
         font-size: 12px;
     }
 
-    .project-card .project-one-github a svg{
+    .project-card .project-svg{
         width: 78px;
         height: 74px;
     }   
     .project-card .project-one-live a svg{
     width: 78px;
     height: 78px;
-    }
-
-    .project-card .project-two-github a svg{
-    width: 78px;
-    height: 74px;
     }   
 }
 
