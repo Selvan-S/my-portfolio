@@ -19,21 +19,28 @@
     <!-- -------Hero Section ----------- -->
     <section id="hero-section" class="hero">
 
-
         <!-- ----------- Nav Bar ----------- -->
-        <nav id="nav-list">
+        <div class="nav">
             <div class="logo"></div>
-            <ul>
-                <li>
-                    <a href="#aboutme">About Me</a>
-                </li>
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li><a href="#contact-me">Contact me</a></li>
-            </ul>
-            </button>
-        </nav>
+            <nav class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#hero-section"  class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#aboutme"  class="nav__link">About Me</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#projects" class="nav__link">Projects</a>
+                    </li>
+                    <li class="nav__item"><a href="#contact-me" class="nav__link">Contact Me</a></li>
+                </ul>    
+            </nav>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars icon-color"></i>
+            </div>
+        </div>
 
         <!-- ------------------------- Hero ------------------- -->
         <div class="hero-area">
@@ -67,7 +74,7 @@
                 <p>Hello, My name is Selvan. I am a Software Developer.</p>
             </div>
             <div class="headshot-container">
-                <img class="headshot" src="src/images/headshot.jpg" alt="Cody Headshot">
+                <img class="headshot" src="src/images/headshot.jpg" alt="Selvan Headshot">
             </div>
         </div>
     </section>
