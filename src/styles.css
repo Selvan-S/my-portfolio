@@ -84,15 +84,15 @@ nav {
     text-decoration: none;
 }
 
-.hero ul li {
+.hero ul li a{
     position: relative;
     color: var(--hightlight);
 }
-.hero ul li:hover {
+.hero ul li a:hover {
     color: var(--text-color);
     
 }
-.hero ul li::after{
+.hero ul li a::after{
     content: "";
     display: block;
     position: absolute;
@@ -103,7 +103,7 @@ nav {
     transform: scale(0);
 }
 
-.hero ul li:hover::after{
+.hero ul li a:hover::after{
     transform: scale(1);
 }
 .nav__toggle {
