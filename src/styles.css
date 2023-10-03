@@ -1,6 +1,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 /* ----------- Colors ------------ */
@@ -10,15 +12,13 @@
     --section-background: rgb(235, 229, 229);
     --hightlight: rgb(0, 255, 255);
     --text-color: rgb(240, 248, 255);
+    --second-color: rgb(17, 106, 123);
 }
 
 html {
     scroll-behavior: smooth;
 }
 body {
-    margin: 0;
-    padding: 0;
-    position: relative;
     font-family: 'Poppins', sans-serif;
     background-color: var(--hero-background);
 }
@@ -53,15 +53,21 @@ span a svg:hover {
 }
 
 /* ------------- Navigation Bar------------------ */
-nav {
+.nav{
     display: flex;
-    justify-content: space-between;
-    align-items: baseline; 
-    font-size: 23px;
-    width: 80%;
+    padding: 13px;
+    max-width: 1024px;
+    margin: auto;
+}
+.logo {
+    flex-basis: 20%;
+    text-align: center;
+}
+nav {
+    font-size: 20px;
+    flex-basis: 80%;
     background-color: var(--hero-background);
     margin: auto;
-    padding-top: 13px;
 }
 
 .logo::before {
@@ -72,10 +78,8 @@ nav {
 }
 .hero ul {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    width: 70%;
+    justify-content: space-evenly;
+    width: 100%;
     list-style: none;
     text-decoration: none;
 }
@@ -102,13 +106,12 @@ nav {
 .hero ul li:hover::after{
     transform: scale(1);
 }
-.hamburger {
+.nav__toggle {
     display: none;
 }
+
 /* -------------- Hero Section ----------------- */
 .hero {
-    margin: 0;
-    padding: 0;
     height: 100vh;
     background-color: hsl(0, 0%, 6%);
     color: var(--text-color);
@@ -123,26 +126,23 @@ nav {
     margin: auto;
     justify-content: space-between;
     align-items: center;
+    max-width: 1024px;
 }
 
 .hero-text p{
-    margin: 0;
     font-size: 20px;
     font-weight: 300;
 }
 .hero-text h1{
-    margin: 0;
     font-size: 80px;
 }
 
 .social-media {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-.x, .linkedin {
-    margin-bottom: 10px;
-}
 .linkedin {
     color: var(--hightlight);
 }
@@ -165,18 +165,16 @@ a {
 }
 
 .button:hover {
-    background-color: rgb(71, 228, 228);
+    background-color: var(--second-color);
+    color: var(--text-color);
 }
 
 .button:active {
-    color: var(--hightlight);
-    background-color: var(--hero-background);
+  background-color: var(--text-color);  
 }
 
 /* ------------ Sections ------------------ */
 section {
-    margin: 0;
-    padding: 0;
     background-color: var(--section-background);
 }
 
@@ -188,6 +186,7 @@ section {
     width: 60%;
     margin: auto;  
     padding: 20px 0px;
+    max-width: 1024px;    
 }
 .info {
     flex-basis: 77%;
@@ -197,9 +196,9 @@ section {
     flex-basis: 23%;
 }
 .headshot-container img{
-    height: 100%;
-    width: 100%;
     border-radius: 50%;
+    max-width: 100%;
+    height: auto;
 }
 
 /* ------------- Projects ------------------ */
@@ -230,20 +229,22 @@ section {
 .project-card:hover,
 .project-card:focus{
     overflow: hidden;
-    -ms-transform: scale(1);
-    -moz-transform: scale(1);
-    -webkit-transform: scale(1);
-    -o-transform: scale(1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
     transform: scale(1.1);
 }
 .project-info {
     text-align: center;
     color: var(--hero-background);
     padding: 8px;
+    margin: auto;
 }
 .subtext {
     font-size: 14px;
     font-weight: 400;
+    margin-block: 14px;
 }
 .link {
     position: relative;
@@ -334,11 +335,6 @@ display: block;
     height: 100px;
   }
 
-
-  /* --------- Project 2 ------------- */
-
-
-
 /* ------------- Footer --------------- */
 footer {
     width: 100%;
@@ -394,21 +390,17 @@ footer {
     gap: 30px;
     margin-top: 30px;
 }
-footer .x, footer .linkedin, footer .github {
-    margin: 0;
-    padding: 0;
-}
+
 footer .x {
     padding-top: 6px;
 }
 
 /* ----------------- Mobile ---------------- */
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 810px){
     /* Hero Section */
     nav {
         font-size: 18px;
-        width: 90%;
     }
     .hero-text h1{
         font-size: 72px;
@@ -425,15 +417,71 @@ footer .x {
         width: 96px;
         height: 26px;
     }
-    .hero ul li::after{
-        height: 2px;
+  
+    /* Nav bar hamburger toggle menu*/
+    #nav-menu{
+        position: fixed;
+        top: 61px;
+        right: -500px;
+        width: 60%;
+        height: 100%;
+        padding: 2rem;
+        font-size: 24px;
+        font-weight: 600;
+        background-color: var(--second-color);
+        border-radius: 5px;
+        z-index: 100;
+        transition: .5s ease-out;
+        display: block;
     }
+    .nav__list{
+        flex-direction: column;
+    }
+    .nav {
+        position: fixed;
+        background-color: var(--hero-background);
+        width: 100%;
+        z-index: 100;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav__item {
+        margin-bottom: 50px;
+    }
+    .hero ul li a{
+        color: var(--text-color);
+    }
+    .hero ul li a:hover{
+        color: var(--text-color);
+    }
+    .hero ul li a::after{
+        top: 40px;
+        height: 3px;
+        background-color: #fff;
+    }
+    .nav__toggle{
+        display: block;
+        color: var(--hightlight);
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+    #nav-menu.show{
+        right: 0;
+    }
+  
     /* About Me */
     .info {
-        flex-basis: 64%;
+        font-size: 14px;
+        text-align: center;
     }
     .headshot-container {
-        flex-basis: 36%;
+        width: 62%;
+        margin: auto;
+    }
+    .aboutme-section {
+      flex-direction: column-reverse;
+      width: 56%;  
     }
 
     /* Footer */
@@ -441,11 +489,8 @@ footer .x {
         width: 70%;
     }
 }
-@media screen and (max-width: 570px){
+@media screen and (max-width: 600px){
     /* Hero Section */
-    nav {
-        font-size: 16px;
-    }
     .hero-text h1{
         font-size: 60px;
     }
@@ -456,36 +501,16 @@ footer .x {
         width: 30px;
         height: 30px
     }
-    .hero ul {
-        width: 80%;
+    .hero ul li a::after{
+        height: 2px;
+        top: 35px;
     }
-    .hero ul li::after{
-        height: 1px;
-    }
-    nav ul li{
-        display: block;
-    }
-    nav #menu-bar {
-        transform: scale(1);
-    }
-
-    /* About Me */
-    .aboutme-section {
-        width: 80%;
+    #nav-menu {
+        font-size: 20px;
     }
 }
 
-@media screen and (max-width: 460px) {
-    /* Nav */
-    nav {
-        font-size: 13px;
-    }
-    
-    /* About Me */
-    .aboutme-section {
-        width: 90%;
-    }
-
+@media screen and (max-width: 460px) {  
     /* Project */
     .project-card {
         width: 240px;
